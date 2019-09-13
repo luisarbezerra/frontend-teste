@@ -8,7 +8,7 @@ export const FETCH_EVENTS_ERROR = 'FETCH_EVENTS_ERROR'
 
 export function fetchingEvents() {
     return {
-        type: 'FETCHING_EVENTS'
+        type:    'FETCHING_EVENTS'
     }
 }
 
@@ -21,7 +21,7 @@ export function fetchedEvents(events) {
   
 export function fetchEventsError(error) {
     return {
-        type:   'FETCH_EVENTS_ERROR',
+        type:    'FETCH_EVENTS_ERROR',
         payload: error
     }
 }
@@ -35,11 +35,10 @@ export function fetchEvents() {
             let response = await fetch(url)
             const json = await response.json();
             if (response.ok) {
-                // tratamento da resposta
+                // Tratamento da resposta
                 let new_json = {};
 
                 parseJsonEvents(json.events, new_json);
-                debugger
                 dispatch(fetchedEvents(new_json));
             } else {
                 throw new Error(json.message);

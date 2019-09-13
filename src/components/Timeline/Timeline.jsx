@@ -1,13 +1,14 @@
 import React from 'react';
-import './Content.scss';
+import './Timeline.scss';
 
-export default class Content extends React.Component {
+export default class Timeline extends React.Component {
     componentWillMount () {
         this.props.fetchEvents();
     }
+    
     render() {
         return (
-            <div className="content" id="content">
+            <div className="timeline" id="timeline">
             Content
             </div>
         );

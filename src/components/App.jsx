@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import Content from './Content'
+import Timeline from './Timeline'
 import './App.scss';
 
 const mapStateToProps = (state) => {
@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const App = ( props ) => (
     <Fragment>
-        <Content />
+        <Timeline />
     </Fragment>
 );
 

@@ -1,9 +1,8 @@
 import { connect } from 'react-redux'
-import Content from './Content'
+import Timeline from './Timeline'
 import {
     fetchEvents
-} from '../../actions/Eventos'
-
+} from '../../actions/Events'
 
 const mapStateToProps = (state) => {
     return {
@@ -20,4 +19,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Content);
+export default connect(mapStateToProps, mapDispatchToProps)(Timeline);
