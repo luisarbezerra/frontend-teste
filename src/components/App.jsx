@@ -3,14 +3,13 @@ import { connect } from 'react-redux';
 import Content from './Content'
 import './App.scss';
 
-const mapDispatchToProps = dispatch => ({
+const mapStateToProps = (state) => {
+    
+}
+
+const mapDispatchToProps = (dispatch) => ({
 
 })
-
-const mapStateToProps = state => {
-    return {
-    }
-}
 
 const App = ( props ) => (
     <Fragment>

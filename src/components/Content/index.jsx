@@ -1,5 +1,8 @@
 import { connect } from 'react-redux'
 import Content from './Content'
+import {
+    fetchEvents
+} from '../../actions/Eventos'
 
 
 const mapStateToProps = (state) => {
@@ -10,6 +13,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        fetchEvents: () => {
+            dispatch(fetchEvents());
+        },
     }
 }
 
