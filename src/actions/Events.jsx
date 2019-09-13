@@ -39,6 +39,7 @@ export function fetchEvents() {
                 let new_json = {};
 
                 parseJsonEvents(json.events, new_json);
+                debugger
                 dispatch(fetchedEvents(new_json));
             } else {
                 throw new Error(json.message);
@@ -52,11 +53,7 @@ export function fetchEvents() {
 function parseJsonEvents(json, new_json) {
     json.forEach((event) => {
         // Pegando o transaction_id, que será a chave do new_json
-        let transaction_id = event.custom_data.find(function(elem) {
-            if (elem.key === 'transaction_id'){
-                return elem;
-            }
-        }).value       
+        let transaction_id = Object.entries(event.custom_data).find(elem => elem[1].key === 'transaction_id')[1].value
     
         // Criando um new_json com chaves de transaction_id's
         if (!new_json[transaction_id]) {
@@ -71,25 +68,13 @@ function parseJsonEvents(json, new_json) {
 
         // Populando o new_json com o json obtido
         if (event.event === 'comprou') {
-            new_json[transaction_id].store_name = event.custom_data.find(function(elem) {
-                if (elem.key === 'store_name'){
-                    return elem.value;
-                }
-            }).value
+            new_json[transaction_id].store_name = Object.entries(event.custom_data).find(elem => elem[1].key === 'store_name')[1].value;
             new_json[transaction_id].revenue    = event.revenue;
             new_json[transaction_id].timestamp  = event.timestamp;
         } else {
             new_json[transaction_id].products.push({
-                'product_name': event.custom_data.find(function(elem) {
-                    if (elem.key === 'product_name'){
-                        return elem.value;
-                    }
-                }).value,
-                'product_price': event.custom_data.find(function(elem) {
-                    if (elem.key === 'product_price'){
-                        return elem.value;
-                    }
-                }).value,
+                'product_name': Object.entries(event.custom_data).find(elem => elem[1].key === 'product_name')[1].value,
+                'product_price': Object.entries(event.custom_data).find(elem => elem[1].key === 'product_price')[1].value
             })
         }
     })
