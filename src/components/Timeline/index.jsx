@@ -6,6 +6,7 @@ import {
 
 const mapStateToProps = (state) => {
     return {
+        events: state.events.events,
     }
 }
 

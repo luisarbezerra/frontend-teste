@@ -1,0 +1,17 @@
+@import '../../assets/sass/globals.scss';
+
+.timeline{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 40px 0;
+}
+
+.timeline::after {
+    background-color: $line-color;
+    content: '';
+    position: absolute;
+    left: calc(30% - 28.5px);
+    width: 4px;
+    height: 100%;
+}
