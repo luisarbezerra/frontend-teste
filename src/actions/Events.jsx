@@ -37,10 +37,12 @@ export function fetchEvents() {
             if (response.ok) {
                 // Tratamento da resposta
                 let new_json = {};
-
                 parseJsonEvents(json.events, new_json);
-                debugger
-                dispatch(fetchedEvents(new_json));
+
+                let eventsArray = Object.entries(new_json);
+                sortJsonEvents(eventsArray);
+
+                dispatch(fetchedEvents(eventsArray));
             } else {
                 throw new Error(json.message);
             }
@@ -78,4 +80,12 @@ function parseJsonEvents(json, new_json) {
             })
         }
     })
+}
+
+function sortJsonEvents(eventsArray) {
+    eventsArray.sort(function(a, b) {
+        var dateA = new Date(a[1].timestamp);
+        var dateB = new Date(b[1].timestamp);
+        return dateA - dateB;
+    });
 }

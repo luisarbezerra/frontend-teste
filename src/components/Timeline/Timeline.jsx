@@ -2,7 +2,7 @@ import React from 'react';
 import './Timeline.scss';
 
 export default class Timeline extends React.Component {
-    componentWillMount () {
+    componentDidMount () {
         this.props.fetchEvents();
     }
     
