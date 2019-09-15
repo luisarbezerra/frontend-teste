@@ -1,3 +1,5 @@
+@import '../../assets/sass/globals.scss';
+
 .card {
     display: flex;
     position: relative;
@@ -7,101 +9,90 @@
     justify-content: flex-start;
     padding-left: 30px;
     padding-right: 0;
-}
 
-.card-content {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    position: relative;
-    width: 400px;
-    max-width: 70%;
-    text-align: left;
-    align-items: flex-start;
-}
+    .card-content {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        background-color: $body-card;
+        flex-direction: column;
+        position: relative;
+        width: 400px;
+        max-width: 70%;
+        text-align: left;
 
-.card-content::after {
-    content: ' ';
-    background-color: #fff;
-    position: absolute;
-    top: calc(20% - 7.5px);
-    transform: rotate(45deg);
-    width: 15px;
-    height: 15px;
-    right: auto;
-    left: -7.5px;
-    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
-}
+        .card-header {
+            background: $header-card;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 15px;
+            border-radius: 5px 5px 0 0;
+            flex-wrap: wrap;
 
-.card-content {
-    text-align: left;
-    align-items: flex-start;
-}
+            .header-icon {
+                height: 12px;
+                width: auto;
+            }
+        }
 
-.card-content::after {
-    right: auto;
-    left: -7.5px;
-    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
-}
+        .card-body {
+            padding: 10px 15px;
+            display: flex;
+            flex-wrap: wrap;
 
+            .card-produto {
+                width: 75%;
+            }
 
-.card-content time {
-    color: #777;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.card-content p {
-    font-size: 16px;
-    line-height: 24px;
-    margin: 15px 0;
-    max-width: 250px;
-}
-
-.card-content a {
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.circle {
-    background-color: #fff;
-    border: 3px solid #e17b77;
-    border-radius: 50%;
-    position: absolute;
-    top: calc(20% - 12px);
-    right: auto;
-    left: -40px;
-    width: 20px;
-    height: 20px;
-    z-index: 100;
+            .tag {
+                font-weight: bold;
+            }
+        }
+    }
+    
+    .card-content::after {
+        content: ' ';
+        background-color: $header-card;
+        position: absolute;
+        top: calc(20% - 2px);
+        transform: rotate(45deg);
+        width: 12px;
+        height: 12px;
+        right: auto;
+        left: -5.5px;;
+        box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .check-icon {
+        border-radius: 50%;
+        position: absolute;
+        top: calc(20% - 12px);
+        right: auto;
+        left: -10px;
+        width: 25px;
+        height: 25px;
+        z-index: 100;
+        background: $line-color;
+    }    
 }
 
 
 @media only screen and (max-width: 1023px) {
-    .timeline-item-content {
+    .card-content {
         max-width: 100%;
     }
 }
 
 @media only screen and (max-width: 767px) {
     .card-content, .card-content {
-        padding: 15px 10px;
         text-align: center;
         align-items: center;
     }
 
-    .timeline-item-content time {
-        margin-top: 20px;
-    }
-
-    .timeline-item-content a {
+    .card-content a {
         text-decoration: underline;
     }
 
-    .timeline-item-content a::after {
+    .card-content a::after {
         display: none;
     }
 }

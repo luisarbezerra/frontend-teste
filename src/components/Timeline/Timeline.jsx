@@ -1,5 +1,6 @@
 import React from 'react';
 import './Timeline.scss';
+
 import Card from '../Card'
 
 export default class Timeline extends React.Component {
@@ -9,7 +10,7 @@ export default class Timeline extends React.Component {
 
 
     renderCard = (event) => {
-        return <Card  key={event[0]} {...event}/>
+        return <Card  key={event[0]} event={event[1]}/>
     }
 
 
