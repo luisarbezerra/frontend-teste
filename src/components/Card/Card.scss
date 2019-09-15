@@ -31,6 +31,11 @@
             .header-icon {
                 height: 12px;
                 width: auto;
+                vertical-align: middle;
+            }
+
+            .header-span {
+                vertical-align: middle;
             }
         }
 
@@ -45,6 +50,22 @@
 
             .tag {
                 font-weight: bold;
+            }
+        }
+
+        .card-products {
+            padding: 0px 15px 10px 15px;
+            display: flex;
+            flex-direction: column;
+
+            .product-row{
+                padding: 10px 0;
+                display: flex;
+                border-top: 1px solid #dedede;
+            }
+
+            .product {
+                width: 75%;
             }
         }
     }

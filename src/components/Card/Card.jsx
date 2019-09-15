@@ -21,8 +21,22 @@ export default class Card extends React.Component {
             .map(n => n < 10 ? `0${n}` : `${n}`).join(':');
     }
 
+
+    renderRow = (product) => {
+        return (
+            <div key={product.product_name} className="product-row">
+                <span className="product">{product.product_name}</span>
+                <span>R${product.product_price},00</span>
+            </div>
+        )
+    }
+
+
+    renderRows = () => {
+        return this.props.event.products.map(product => this.renderRow(product));
+    }
+
     render() {
-        debugger
         return (
             <div className="card">
                 <Check className="check-icon"/>
@@ -31,19 +45,19 @@ export default class Card extends React.Component {
                     <div className="card-header">
                         <div>
                             <Calendar className="header-icon"/>
-                            <span> {this.formattedDate(this.props.event.timestamp)}</span>
+                            <span className="header-span"> {this.formattedDate(this.props.event.timestamp)}</span>
                         </div>
                         <div>
                             <Clock className="header-icon"/>
-                            <span> {this.formattedTime(this.props.event.timestamp)}</span>
+                            <span className="header-span"> {this.formattedTime(this.props.event.timestamp)}</span>
                         </div>
                         <div>
                             <Place className="header-icon"/>
-                            <span> {this.props.event.store_name}</span>
+                            <span className="header-span"> {this.props.event.store_name}</span>
                         </div>
                         <div>
                             <Money className="header-icon"/>
-                            <span> R${this.props.event.revenue},00</span>
+                            <span className="header-span"> R${this.props.event.revenue},00</span>
                         </div>
                     </div>
 
@@ -59,7 +73,10 @@ export default class Card extends React.Component {
                             </span>
                         </div>
                     </div>
-     
+
+                    <div className= "card-products">
+                        { this.renderRows() }
+                    </div>
                 </div>
             </div>
         );
